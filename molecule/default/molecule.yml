@@ -1,0 +1,21 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: debian-10
+    image: python:3.9-buster
+    pre_build_image: true
+  - name: debian-11
+    image: python:3.9-bullseye
+    pre_build_image: true
+  - name: rocky-8
+    image: rockylinux/rockylinux:latest
+    pre_build_image: true
+provisioner:
+  name: ansible
+  playbooks:
+    prepare: prepare.yml
+verifier:
+  name: ansible
